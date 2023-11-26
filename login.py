@@ -1,8 +1,6 @@
 from customtkinter import *
 from PIL import Image
-import main
 from CTkMessagebox import CTkMessagebox
-import time
 import sys
 
 def validate_login():
@@ -19,6 +17,7 @@ def redirect_to_main():
     sys.exit()
 
 app = CTk()
+app.title("OS PDF CONVERTER")
 app.geometry("600x480")
 app.resizable(0, 0)
 
