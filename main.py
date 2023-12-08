@@ -214,6 +214,9 @@ def main():
     root.geometry("800x600")
     root.resizable(width=False, height=False)
 
+    # bg_image = PhotoImage(file="pattern.png")
+    # customtkinter.CTkLabel(root, image=bg_image)
+
     # Label OS PDF CONVERTER
 
     title_label = customtkinter.CTkLabel(root, text="OS PDF CONVERTER", font=("Ariel bold", 36))
