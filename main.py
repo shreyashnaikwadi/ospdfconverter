@@ -19,6 +19,7 @@ from reportlab.pdfgen import canvas
 from PyPDF2 import PdfReader, PdfWriter
 from pdf2image import convert_from_path, convert_from_bytes
 from pdf2docx import Converter
+import ctypes
 
 
 def main():
@@ -211,22 +212,29 @@ def main():
 
     root = customtkinter.CTk()
     root.title("OS PDF CONVERTER")
-    root.geometry("800x600")
-    root.resizable(width=False, height=False)
 
-    # bg_image = PhotoImage(file="pattern.png")
-    # customtkinter.CTkLabel(root, image=bg_image)
+    image_path = PhotoImage(file='assets/pattern.png')
+    bg_image=Label(root, image=image_path)
+    bg_image.pack()
+
+    root.after(0, lambda:root.state('zoomed'))
+
+    # Icon 
+
+    myappid = 'mycompany.myproduct.subproduct.version' # arbitrary string
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+    root.iconbitmap(default='assets/logo.ico')
 
     # Label OS PDF CONVERTER
 
-    title_label = customtkinter.CTkLabel(root, text="OS PDF CONVERTER", font=("Ariel bold", 36))
-    title_label.place(relx=0.5, rely=0.1, anchor=N)
+    title_label = customtkinter.CTkLabel(root, text="OS PDF CONVERTER", font=("Ariel bold", 50))
+    title_label.place(relx=0.5, rely=0.1, anchor=CENTER)
 
     # Frame
 
-    button_frame = customtkinter.CTkFrame(master=root, width=400, height=300)
+    button_frame = customtkinter.CTkFrame(master=root, width=600, height=400)
     button_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
-
 
     convert_pdf_to_word_button = customtkinter.CTkButton(master=button_frame, text="PDF to Word", command=convert_pdf_to_word)
     convert_pdf_to_word_button.grid(row=0, column=0, padx=10, pady=10)

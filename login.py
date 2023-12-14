@@ -2,6 +2,7 @@ from customtkinter import *
 from PIL import Image
 from CTkMessagebox import CTkMessagebox
 import sys
+import os
 
 def validate_login():
     if email_entry.get() == "admin@gmail.com" and password_entry.get() == "1234":
@@ -21,15 +22,27 @@ app.title("OS PDF CONVERTER")
 app.geometry("600x480")
 app.resizable(0, 0)
 
-side_img_data = Image.open("side-img.png")
-email_icon_data = Image.open("email-icon.png")
-password_icon_data = Image.open("password-icon.png")
-# google_icon_data = Image.open("google-icon.png")
+import ctypes
+
+myappid = 'mycompany.myproduct.subproduct.version'
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+app.iconbitmap(default='assets/logo.ico')
+
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+side_image_path = os.path.join(script_dir, 'assets', 'sideimg.png')
+email_icon_image_path = os.path.join(script_dir, 'assets', 'emailicon.png')
+password_icon_image_path = os.path.join(script_dir, 'assets', 'passwordicon.png')
+
+
+side_img_data = Image.open(side_image_path)
+email_icon_data = Image.open(email_icon_image_path)
+password_icon_data = Image.open(password_icon_image_path)
 
 side_img = CTkImage(dark_image=side_img_data, light_image=side_img_data, size=(300, 480))
 email_icon = CTkImage(dark_image=email_icon_data, light_image=email_icon_data, size=(20, 20))
 password_icon = CTkImage(dark_image=password_icon_data, light_image=password_icon_data, size=(17, 17))
-# google_icon = CTkImage(dark_image=google_icon_data, light_image=google_icon_data, size=(17, 17))
 
 CTkLabel(master=app, text="", image=side_img).pack(expand=True, side="left")
 
@@ -67,5 +80,3 @@ CTkButton(master=frame, text="Login", fg_color="#601E88", hover_color="#E44982",
 app.mainloop()
 
 import main
-
-
