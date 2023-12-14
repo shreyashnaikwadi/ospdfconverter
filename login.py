@@ -2,7 +2,7 @@ from customtkinter import *
 from PIL import Image
 from CTkMessagebox import CTkMessagebox
 import sys
-import os
+import os 
 
 def validate_login():
     if email_entry.get() == "admin@gmail.com" and password_entry.get() == "1234":
@@ -37,7 +37,7 @@ password_icon_image_path = os.path.join(script_dir, 'assets', 'passwordicon.png'
 
 
 side_img_data = Image.open(side_image_path)
-email_icon_data = Image.open(email_icon_image_path)
+email_icon_data = Image.open(email_icon_image_path)     
 password_icon_data = Image.open(password_icon_image_path)
 
 side_img = CTkImage(dark_image=side_img_data, light_image=side_img_data, size=(300, 480))

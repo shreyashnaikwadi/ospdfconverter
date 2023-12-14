@@ -1,25 +1,22 @@
-import os
-import io
-import shutil
-import time
-from tkinter import Tk, filedialog, simpledialog, messagebox
-from tkinter import *
-from PIL import Image, ImageTk
-import customtkinter
-from CTkMessagebox import CTkMessagebox
-import openpyxl
-import pandas as pd
-from fpdf import FPDF
-import comtypes.client
-import PyPDF2  # Add this import
-from docx2pdf import convert as convert_to_pdf
-from img2pdf import convert as image_to_pdf
-from pptx import Presentation
-from reportlab.pdfgen import canvas
-from PyPDF2 import PdfReader, PdfWriter
-from pdf2image import convert_from_path, convert_from_bytes
-from pdf2docx import Converter
-import ctypes
+import os  # Operating system functions
+import shutil  # Shell utility functions used for file mangement
+import time  # Time-related functions
+from tkinter import Tk, filedialog, simpledialog, messagebox  # GUI elements
+from tkinter import *  # Importing all elements from tkinter
+from PIL import Image, ImageTk  # Python Imaging Library for image processing
+import customtkinter  # Customized tkinter library
+from CTkMessagebox import CTkMessagebox  # Customized tkinter messagebox
+import openpyxl  # Library for working with Excel files
+import pandas as pd  # Data manipulation library
+from fpdf import FPDF  # PDF generation library
+import PyPDF2  # PDF manipulation library
+from docx2pdf import convert as convert_to_pdf  # Convert DOCX to PDF
+from img2pdf import convert as image_to_pdf  # Convert images to PDF
+from reportlab.pdfgen import canvas  # PDF generation library
+from PyPDF2 import PdfReader, PdfWriter  # PDF manipulation library
+from pdf2image import convert_from_path, convert_from_bytes  # Convert PDF to image
+from pdf2docx import Converter  # Convert PDF to DOCX
+import ctypes  # Windows API functions for ctypes (foreign function interface)
 
 
 def main():
@@ -207,7 +204,7 @@ def main():
             if output_directory:
                 organize_pdfs(input_directory, output_directory)
 
-    customtkinter.set_appearance_mode("System")
+    customtkinter.set_appearance_mode("Dark")
     customtkinter.set_default_color_theme("blue")
 
     root = customtkinter.CTk()
